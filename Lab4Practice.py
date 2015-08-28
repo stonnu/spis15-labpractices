@@ -66,7 +66,8 @@ def embedDigits2(contextVal, messageVal):
 
 ######################TO DO##########################
 def embedDigitsN(contextVal, messageVal, N):
-    messageVal = (messageVal << (8-len(numToBinary(messageVal)))) >> (8-N)
+    if N != len(numToBinary(messageVal)):
+        messageVal = (messageVal << (8-len(numToBinary(messageVal)))) >> (8-N)
     contextVal = (contextVal >> N) << N
     return contextVal | messageVal
 
